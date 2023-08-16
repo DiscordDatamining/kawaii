@@ -109,6 +109,14 @@ class Margiela(Bot):
                 """
             await self.send(
                 embed=Embed(
+                    description=f"{message}",
+                    color=Color.normal,
+                )
+            )
+
+        async def approve(self: "Margiela.context", message: str) -> None:
+            await self.send(
+                embed=Embed(
                     description=f"{Emoji.approve} {self.author.mention}, {message}",
                     color=Color.approve,
                 )
