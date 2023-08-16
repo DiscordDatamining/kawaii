@@ -1,6 +1,7 @@
 from inspect import iscoroutinefunction as iscoro, isfunction as isfunc
 import asyncio
 import discord
+from .client import Emoji, Color
 
 
 class prev_page(discord.ui.Button):
@@ -92,8 +93,8 @@ class goto_modal(discord.ui.Modal, title="Go to"):
         super().__init__()
         self.button = button
         self.page_num = discord.ui.TextInput(
-            label="Page",
-            placeholder=f"page number 1-{len(self.button.view.embeds)}",
+            label="Goto Page (kawaii bot interface)",
+            placeholder=f"please select a page from 1 to {len(self.button.view.embeds)}",
             style=discord.TextStyle.short,
             required=True,
         )
@@ -108,7 +109,7 @@ class goto_modal(discord.ui.Modal, title="Go to"):
                 view.page = num
             else:
                 return await interaction.followup.send(
-                    content="Invalid number: aborting", ephemeral=True
+                    content="Invalid Number! :c", ephemeral=True
                 )
 
             view.update_view()
@@ -119,7 +120,7 @@ class goto_modal(discord.ui.Modal, title="Go to"):
                 pass
         except ValueError:
             return await interaction.response.send_message(
-                content="That's not a number", ephemeral=True
+                content="Sorry.. Thats not a number! :c", ephemeral=True
             )
 
 
@@ -313,8 +314,8 @@ class Paginator(discord.ui.View):
                 return await interaction.response.send_message(
                     ephemeral=True,
                     embed=discord.Embed(
-                        description=f"{emoji} {interaction.user.mention}: **You aren't the author of this embed**",
-                        color=self.color,
+                        description=f"{Emoji.bunny} {interaction.user.mention}, Sorry :c You cannot operate on this embed!",
+                        color=Color.error,
                     ),
                 )
             else:
