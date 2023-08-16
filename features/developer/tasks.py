@@ -6,11 +6,11 @@ from discord.ext.commands import (
     is_owner,
     Context,
 )
-from modules.margiela import Kawaii
+from modules.margiela import Margiela
 
 
 class Tasks(Cog):
-    def __init__(self: "Tasks", bot: Kawaii, *args, **kwargs) -> None:
+    def __init__(self: "Tasks", bot: Margiela, *args, **kwargs) -> None:
         """
         Sets up tasks for the backend of the bot
         """
