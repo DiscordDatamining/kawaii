@@ -1,5 +1,5 @@
 import os
-from modules.kawaii import Margiela
+from modules.margiela import Margiela
 from workers.client import Authorization
 
 os.environ.update(

@@ -6,7 +6,7 @@ from discord.ext.commands import (
     is_owner,
     Context,
 )
-from modules.kawaii import Kawaii
+from modules.margiela import Kawaii
 
 
 class Tasks(Cog):
