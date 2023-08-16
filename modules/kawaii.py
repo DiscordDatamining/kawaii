@@ -121,7 +121,7 @@ class Kawaii(Bot):
                 """
             await self.send(
                 embed=Embed(
-                    description=f"{Emoji.bunny} {self.author.mention} Oh no! {message} :c",
+                    description=f"{Emoji.bunny} {self.author.mention}, {message} :c",
                     color=Color.error,
                 )
             )
