@@ -119,6 +119,13 @@ class Kawaii(Bot):
         ) -> None:
             if not error_code:
                 self.callbacks = False
+            elif error_code:
+                return await self.send(
+                embed=Embed(
+                    description=f"{Emoji.bunny} {self.author.mention}, Looks like we ran into an [`{error_code}`](https://http.cat/{error_code}) error :c",
+                    color=Color.error,
+                )
+            )
             else:
                 """
                 Still returns dispatch as true even if no error_code was given
@@ -129,6 +136,7 @@ class Kawaii(Bot):
                     color=Color.error,
                 )
             )
+
 
         async def paginate(
             self: "Kawaii.context", ctx: Context, embeds: list, *args, **kwargs
