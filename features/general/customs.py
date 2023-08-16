@@ -4,11 +4,12 @@ from discord.ext.commands import (
     group,
     command,
 )
+from modules.margiela import Margiela
 
 
 class AutoWorker(Cog):
-    def __init__(self: "AutoWorker", bot, *args, **kwargs) -> None:
-        self.bot, self.client, self.worker = bot
+    def __init__(self: "AutoWorker", bot: Margiela, *args, **kwargs) -> None:
+        self.bot = bot
 
 
 async def setup(bot):
