@@ -47,7 +47,7 @@ class Kawaii(Bot):
             If True, it'll return if its True or False
             False: it'll stop the other workers and stop the bot
             True: it'll start the other managers for the auto pfps etc
-        """ 
+        """
         self.overload = False
         self.callbacks = True
         self.ready = False
@@ -121,11 +121,11 @@ class Kawaii(Bot):
                 self.callbacks = False
             elif error_code:
                 return await self.send(
-                embed=Embed(
-                    description=f"{Emoji.bunny} {self.author.mention}, An **[`{error_code}`](https://http.cat/{error_code})** error occured :c",
-                    color=Color.warning,
+                    embed=Embed(
+                        description=f"{Emoji.bunny} {self.author.mention}, An **[`{error_code}`](https://http.cat/{error_code})** error occured :c",
+                        color=Color.warning,
+                    )
                 )
-            )
             else:
                 """
                 Still returns dispatch as true even if no error_code was given
