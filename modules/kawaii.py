@@ -2,6 +2,7 @@ import os
 
 import discord
 from aiohttp import ClientSession
+from asyncpg import create_pool
 from discord import Embed, Intents
 from discord.ext.commands import (
     ArgumentParsingError,
@@ -11,7 +12,6 @@ from discord.ext.commands import (
     MissingPermissions,
 )
 
-from asyncpg import create_pool
 from workers.client import Authorization, Color, Emoji, Task
 from workers.manager import Manager
 from workers.paginator import Paginator as pg
@@ -37,7 +37,7 @@ class Kawaii(Bot):
             status=discord.Status.idle,
             activity=discord.Activity(
                 type=discord.ActivityType.custom,
-                name="wewe",
+                name="|||||||",
                 state="you know me? im kawaii :3",
             ),
         )
@@ -76,6 +76,7 @@ class Kawaii(Bot):
                     cog_name = os.path.join(root, filename)[:-3].replace(os.sep, ".")
                     try:
                         await self.load_extension(cog_name)
+                        print(f"{cog_name} has been granted")
                     except:
                         pass
 
