@@ -35,7 +35,7 @@ class Kawaii(Bot):
             activity=discord.Activity(
                 type=discord.ActivityType.custom,
                 name="wewe",
-                state=":skull: pfps",
+                state="🎀 pfps",
             ),
         )
         """
