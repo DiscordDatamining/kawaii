@@ -13,8 +13,11 @@ class Task:
 
 
 class Emoji:
-    ...
+    bow: str = "<a:kawaiiBowPink:1141247541330063421>"
+    ribbon: str = "<a:kawaiiPinkRibbon:1141247576390242375>"
 
 
 class Color:
-    ...
+    normal: int = 0xF4CCD4
+    error: int = 0xF42464
+    warning: int = 0xF4ACAC

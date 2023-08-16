@@ -1,6 +1,7 @@
 import os
 
 import discord
+from aiohttp import ClientSession
 from discord import Embed, Intents
 from discord.ext.commands import (
     ArgumentParsingError,
@@ -9,8 +10,8 @@ from discord.ext.commands import (
     Context,
     MissingPermissions,
 )
-from aiohttp import ClientSession
-from workers.client import Authorization
+
+from workers.client import Authorization, Color, Emoji, Task
 from workers.manager import Manager
 
 
@@ -45,6 +46,9 @@ class Kawaii(Bot):
             False: it'll stop the other workers and stop the bot
             True: it'll start the other managers for the auto pfps etc
         """
+        self.dispatch = True
+        self.overload = False
+        self.callbacks = True
         self.ready = False
 
     async def setup_hook(self: "Kawaii") -> None:
@@ -63,3 +67,39 @@ class Kawaii(Bot):
 
     async def on_ready(self: "Kawaii") -> None:
         await self.load_extension("jishaku")
+
+    async def get_context(
+        self: "Kawaii", message: discord.Message, *, cls=None
+    ) -> None:
+        """
+        Gets the context, and then returns it
+        """
+        return await super().get_context(message, cls=cls or Kawaii.context)
+
+    class context(Context):
+        """
+        Custom context
+        Examples:
+            (Dispatch): string|int -> 'await ctx.dispatch("Message")'
+            (Warning|Error): string -> 'await ctx.callback("Message")'
+            (Overload): None -> ...
+            (Pagination): List -> ...
+        """
+
+        async def dispatch(
+            self: "Kawaii.context", message: str, error_code: str = None
+        ) -> None:
+            if not error_code:
+                self.callbacks = False
+                self.dispatch = True
+            else:
+                """
+                Still returns dispatch as true even if no error_code was given
+                """
+                self.dispatch = True
+            await self.send(
+                embed=Embed(
+                    description=f"{Emoji.bow} {self.author.mention}, {message}",
+                    color=Color.normal,
+                )
+            )
