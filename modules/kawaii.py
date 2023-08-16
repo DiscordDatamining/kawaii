@@ -133,7 +133,12 @@ class Kawaii(Bot):
         async def paginate(
             self: "Kawaii.context", ctx: Context, embeds: list, *args, **kwargs
         ) -> None:
-            page = pg(self.bot, embeds, ctx, invoker=ctx.author.id)
+            page = pg(
+                self.bot,
+                embeds,
+                ctx,
+                invoker=ctx.author.id,
+            )
             page.add_button(
                 "prev",
                 emoji=Emoji.left,
