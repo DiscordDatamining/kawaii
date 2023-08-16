@@ -126,7 +126,7 @@ class goto_modal(discord.ui.Modal, title="Go to"):
 
 class goto_page(discord.ui.Button):
     def __init__(self, label, emoji, style, row):
-        super().__init__(label=label, emoji=emoji, style=style, row=row)
+        super().__init__(label="Jump" or label, emoji=emoji, style=style, row=row)
 
     async def callback(self, interaction):
         await interaction.response.send_modal(goto_modal(self))
