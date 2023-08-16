@@ -46,7 +46,6 @@ class Kawaii(Bot):
             False: it'll stop the other workers and stop the bot
             True: it'll start the other managers for the auto pfps etc
         """
-        self.dispatch = True
         self.overload = False
         self.callbacks = True
         self.ready = False
@@ -91,12 +90,10 @@ class Kawaii(Bot):
         ) -> None:
             if not error_code:
                 self.callbacks = False
-                self.dispatch = True
             else:
                 """
                 Still returns dispatch as true even if no error_code was given
                 """
-                self.dispatch = True
             await self.send(
                 embed=Embed(
                     description=f"{Emoji.bow} {self.author.mention}, {message}",
