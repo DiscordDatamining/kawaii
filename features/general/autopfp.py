@@ -33,8 +33,8 @@ class Worker(Cog):
             if not interaction.user != interaction.user:
                 return await Worker.bot.ext.failure("FaiL?")
 
-    @command(name="Test")
-    async def test(self: "Worker", ctx: Context) -> None:
+    @command(name="what")
+    async def what(self: "Worker", ctx: Context) -> None:
         yes = discord.ui.Button(emoji=Emoji.bunny)
         yes.callback = Worker.Callback.setupautopfp
         view = View()
@@ -42,5 +42,5 @@ class Worker(Cog):
         await ctx.send("hello", view=view)
 
 
-async def setup(bot) -> None:
+async def setup(bot):
     await bot.add_cog(Worker(bot))
