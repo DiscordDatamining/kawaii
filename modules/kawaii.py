@@ -115,15 +115,13 @@ class Kawaii(Bot):
         ) -> None:
             if not error_code:
                 self.callbacks = False
-                return
             else:
                 """
-                Creates and makes self.callbacks True
+                Still returns dispatch as true even if no error_code was given
                 """
-                self.callbacks = True
             await self.send(
                 embed=Embed(
-                    description=f"{Emoji.bunny}, {message} :c",
+                    description=f"{Emoji.bunny} {self.author.mention} Oh no! {message} :c",
                     color=Color.error,
                 )
             )
