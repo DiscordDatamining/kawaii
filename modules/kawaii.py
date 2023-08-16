@@ -145,7 +145,7 @@ class Kawaii(Bot):
             page.add_button(
                 "goto",
                 emoji=Emoji.teleport,
-                label="Goto",
+                label="Page",
                 style=discord.ButtonStyle.grey,
             )
             page.add_button(
