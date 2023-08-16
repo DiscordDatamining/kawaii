@@ -6,7 +6,11 @@ from asyncpg import (
 
 
 class Manager:
-    def __init__(
+    def __init__(self: "Manager", *args, **kwargs) -> None:
+        self.resolve: list = ()
+
+    @classmethod
+    async def create_task(
         self: "Manager",
         host: str,
         user: str,
@@ -14,25 +18,17 @@ class Manager:
         database: str,
         password: str,
     ) -> None:
-        self.host: str = host
-        self.user: str = user
-        self.port: str = port
-        self.database: str = database
-        self.password: str = password
-
-    @classmethod
-    async def create_task(self: "Manager") -> None:
         try:
             await create_pool(
                 **{
-                    "host": self.host,
-                    "user": self.user,
-                    "port": self.port,
-                    "database": self.database,
-                    "password": self.password,
+                    "host": host,
+                    "user": user,
+                    "port": port,
+                    "database": database,
+                    "password": password,
                 }
             )
-        except:
+        except Exception as e:
             raise Exception(
-                "DB Connection Error, Could not resolve connection to the database"
+                f"DB Connection Error, Could not resolve connection to the database: {e}"
             )
