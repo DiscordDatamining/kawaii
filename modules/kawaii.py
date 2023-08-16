@@ -13,7 +13,7 @@ from discord.ext.commands import (
 
 from workers.client import Authorization, Color, Emoji, Task
 from workers.manager import Manager
-from workers.paginator import Paginator
+from workers.paginator import Paginator as pg
 
 
 class Kawaii(Bot):
@@ -125,3 +125,33 @@ class Kawaii(Bot):
                     color=Color.error,
                 )
             )
+
+        async def paginate(
+            self: "Kawaii.context", ctx: Context, embeds: list, *args, **kwargs
+        ) -> None:
+            page = pg(self.bot, embeds, ctx, invoker=ctx.author.id)
+            page.add_button(
+                action="prev",
+                emoji=Emoji.bow,
+                label="Previous",
+                style=discord.ButtonStyle.blurple,
+            )
+            page.add_button(
+                action="next",
+                emoji=Emoji.bunny,
+                label="Next",
+                style=discord.ButtonStyle.blurple,
+            )
+            page.add_button(
+                action="goto",
+                emoji=Emoji.teleport,
+                label="Goto",
+                style=discord.ButtonStyle.grey,
+            )
+            page.add_button(
+                action="delete",
+                emoji=Emoji.delete,
+                label="Poof",
+                style=discord.ButtonStyle.danger,
+            )
+            return await page.start()

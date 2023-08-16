@@ -24,6 +24,8 @@ class Emoji:
     """
     Paginator Buttons
     """
+    teleport: str = "<:1_bearvamp:1141258271634759715>"
+    delete: str = "<:ThinkingHmm:1141259209942507570>"
 
 
 class Color:
