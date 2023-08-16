@@ -13,6 +13,7 @@ from discord.ext.commands import (
 
 from workers.client import Authorization, Color, Emoji, Task
 from workers.manager import Manager
+from workers.paginator import Paginator
 
 
 class Kawaii(Bot):
@@ -36,7 +37,7 @@ class Kawaii(Bot):
             activity=discord.Activity(
                 type=discord.ActivityType.custom,
                 name="wewe",
-                state="🎀 pfps",
+                state="you know me? im kawaii :3",
             ),
         )
         """
@@ -66,6 +67,14 @@ class Kawaii(Bot):
 
     async def on_ready(self: "Kawaii") -> None:
         await self.load_extension("jishaku")
+        for root, dirs, files in os.walk("features"):
+            for filename in files:
+                if filename.endswith(".py"):
+                    cog_name = os.path.join(root, filename)[:-3].replace(os.sep, ".")
+                    try:
+                        await self.load_extension(cog_name)
+                    except:
+                        pass
 
     async def get_context(
         self: "Kawaii", message: discord.Message, *, cls=None
@@ -80,7 +89,7 @@ class Kawaii(Bot):
         Custom context
         Examples:
             (Dispatch): string|int -> 'await ctx.dispatch("Message")'
-            (Warning|Error): string -> 'await ctx.callback("Message")'
+            (Warning|Error|Failure): string -> 'await ctx.callback("Message")'
             (Overload): None -> ...
             (Pagination): List -> ...
         """
@@ -100,3 +109,26 @@ class Kawaii(Bot):
                     color=Color.normal,
                 )
             )
+        
+        async def failure(
+            self: "Kawaii.context", message: str, error_code: str = None
+        ) -> None:
+            if not error_code or message:
+                self.callbacks = False
+                return
+            else:
+                """
+                Creates and makes self.callbacks True
+                """
+                self.callbacks = True
+            await self.send(
+                embed=Embed(
+                    description=(
+                        f"{f'{Emoji.bunny} Oh no! ive ran into a [`{error_code}`](https://http.cat/{error_code}) :c' 
+                        if error_code else f'{Emoji.bunny}, {message} :c'
+                        }"
+                    ),
+                    color=Color.error
+                )
+            )
+            
