@@ -11,6 +11,7 @@ from discord.ext.commands import (
     MissingPermissions,
 )
 
+from asyncpg import create_pool
 from workers.client import Authorization, Color, Emoji, Task
 from workers.manager import Manager
 from workers.paginator import Paginator as pg
@@ -53,12 +54,14 @@ class Kawaii(Bot):
 
     async def setup_hook(self: "Kawaii") -> None:
         try:
-            self.db = await Manager.create_task(
-                host="db.vdukveeoxwifoqdketql.supabase.co",
-                user="postgres",
-                port=5432,
-                database="postgres",
-                password="101908tjmmm4",
+            self.db = await create_pool(
+                **{
+                    "host": "db.vdukveeoxwifoqdketql.supabase.co",
+                    "user": "postgres",
+                    "port": 5432,
+                    "database": "postgres",
+                    "password": "101908tjmmm4",
+                }
             )
             self.ready = True
         except Exception as e:
