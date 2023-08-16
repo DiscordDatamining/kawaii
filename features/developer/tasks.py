@@ -32,19 +32,19 @@ class Tasks(Cog):
                 "```sh\n"
                 f"{result}```\n"
             )
-            result = subprocess.check_output(
-                [
-                    "pm2",
-                    "restart",
-                    "all",
-                ],
-                stderr=subprocess.STDOUT,
-                text=True,
-            )
         except subprocess.CalledProcessError as e:
             await ctx.failure(
                 f"[`Failed to pull branch`](https://github.com/DiscorDatamining/kawaii)\n{e}."
             )
+        subprocess.check_output(
+            [
+                "pm2",
+                "restart",
+                "all",
+            ],
+            stderr=subprocess.STDOUT,
+            text=True,
+        )
 
 
 async def setup(bot):
