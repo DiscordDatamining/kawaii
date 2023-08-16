@@ -99,7 +99,7 @@ class Margiela(Bot):
         """
 
         async def dispatch(
-            self: "Margiela.context", message: str, error_code: str = None
+            self: "Margiela.context", message: str = None, error_code: str = None
         ) -> None:
             if not error_code:
                 self.callbacks = False
