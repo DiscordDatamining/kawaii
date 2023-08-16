@@ -123,7 +123,7 @@ class Kawaii(Bot):
                 self.callbacks = True
             await self.send(
                 embed=Embed(
-                    description=(f"{Emoji.bunny}, {message} :c"),
+                    description=f"{Emoji.bunny}, {message} :c",
                     color=Color.error,
                 )
             )
