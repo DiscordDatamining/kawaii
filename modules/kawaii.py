@@ -47,7 +47,7 @@ class Kawaii(Bot):
             If True, it'll return if its True or False
             False: it'll stop the other workers and stop the bot
             True: it'll start the other managers for the auto pfps etc
-        """
+        """ 
         self.overload = False
         self.callbacks = True
         self.ready = False
