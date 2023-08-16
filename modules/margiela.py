@@ -132,8 +132,8 @@ class Margiela(Bot):
                 """
             await self.send(
                 embed=Embed(
-                    description=f"{self.author.mention}, {message} ",
-                    color=Color.error,
+                    description=f"{Emoji.warn} {self.author.mention}, {message} ",
+                    color=Color.warning,
                 )
             )
 
