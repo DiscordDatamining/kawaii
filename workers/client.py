@@ -25,7 +25,7 @@ class Emoji:
     Important Buttons
     """
     deny: str = "<:deny:1126212292787310752>"
-    warn: str = "<:warning:743006201981173831>"
+    warn: str = "<:warning:1141466367372046378>"
     approve: str = "<:approve:1126212283161387150>"
 
     """
