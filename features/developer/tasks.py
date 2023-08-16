@@ -30,7 +30,7 @@ class Tasks(Cog):
             await ctx.dispatch(
                 "[`git pull origin main | approved | PM2 RESTARTING`](https://github.com/DiscorDatamining/kawaii)\n"
                 "```sh\n"
-                f"{result}```\n"
+                f"{result}```\n "
             )
         except subprocess.CalledProcessError as e:
             await ctx.failure(
