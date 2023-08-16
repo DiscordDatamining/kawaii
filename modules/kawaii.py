@@ -38,7 +38,7 @@ class Kawaii(Bot):
             activity=discord.Activity(
                 type=discord.ActivityType.custom,
                 name="|||||||",
-                state="Customizable Discord pfp bot",
+                state="<3",
             ),
         )
         """
