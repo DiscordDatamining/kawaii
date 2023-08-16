@@ -136,6 +136,13 @@ class Kawaii(Bot):
                     color=Color.error,
                 )
             )
+        
+        async def fetch(
+            self: "Kawaii.context", ctx: Context, query: str, *args, **kwargs
+        ) -> None:
+            fetched = await self.db.fetch(query)
+            await self.paginate(ctx, embeds=[f"```bf\nfetched```"])
+
 
 
         async def paginate(
