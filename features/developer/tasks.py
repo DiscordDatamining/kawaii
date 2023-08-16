@@ -35,7 +35,7 @@ class Tasks(Cog):
             )
         except subprocess.CalledProcessError as e:
             await ctx.failure(
-                f"[`Failed to pull branch`](https://github.com/DiscorDatamining/kawaii)\n{e}"
+                f"[`Failed to pull branch`](https://github.com/DiscorDatamining/kawaii)\n{e}."
             )
 
 
