@@ -142,12 +142,12 @@ class Kawaii(Bot):
             )
             page.add_button(
                 "goto",
-                emoji=Emoji.goto,
+                emoji=Emoji.goto2,
                 style=discord.ButtonStyle.gray,
             )
             page.add_button(
                 "delete",
-                emoji=Emoji.delete,
+                emoji=Emoji.cancel,
                 style=discord.ButtonStyle.danger,
             )
             return await page.start()
