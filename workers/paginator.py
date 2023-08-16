@@ -93,7 +93,7 @@ class goto_modal(discord.ui.Modal, title="Go to"):
         super().__init__()
         self.button = button
         self.page_num = discord.ui.TextInput(
-            label="Goto Page (kawaii bot interface)",
+            label="Goto Page (Margiela bot interface)",
             placeholder=f"please select a page from 1 to {len(self.button.view.embeds)}",
             style=discord.TextStyle.short,
             required=True,
