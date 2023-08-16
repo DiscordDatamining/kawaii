@@ -132,26 +132,22 @@ class Kawaii(Bot):
             page = pg(self.bot, embeds, ctx, invoker=ctx.author.id)
             page.add_button(
                 "prev",
-                emoji=Emoji.bow,
-                label="Previous",
+                emoji=Emoji.left,
                 style=discord.ButtonStyle.blurple,
             )
             page.add_button(
                 "next",
-                emoji=Emoji.bunny,
-                label="Next",
+                emoji=Emoji.right,
                 style=discord.ButtonStyle.blurple,
             )
             page.add_button(
                 "goto",
-                emoji=Emoji.teleport,
-                label="Page",
-                style=discord.ButtonStyle.grey,
+                emoji=Emoji.goto,
+                style=discord.ButtonStyle.gray,
             )
             page.add_button(
                 "delete",
                 emoji=Emoji.delete,
-                label="Poof",
                 style=discord.ButtonStyle.danger,
             )
             return await page.start()

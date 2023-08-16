@@ -24,6 +24,11 @@ class Emoji:
     """
     Paginator Buttons
     """
+    left: str = "<:left:1141353446742700123>"
+    right: str = "<:right:1141353508394782730>"
+    cancel: str = "<:cancel:1141353529873797120>"
+    goto: str = "<:goto1:1141354412082741349>"
+    goto2: str = "<:skipto:1141354608791396362>"
     teleport: str = "<:1_bearvamp:1141258271634759715>"
     delete: str = "<:ThinkingHmm:1141259209942507570>"
 
