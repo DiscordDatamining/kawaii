@@ -22,6 +22,13 @@ class Emoji:
     bunny: str = "<a:BunnyCarrots:1141247581465354272>"
 
     """
+    Important Buttons
+    """
+    deny: str = "<:deny:1126212292787310752>"
+    warn: str = "<:warning:743006201981173831>"
+    approve: str = "<:approve:1126212283161387150>"
+
+    """
     Paginator Buttons
     """
     left: str = "<:left:1141353446742700123>"
@@ -34,6 +41,8 @@ class Emoji:
 
 
 class Color:
-    normal: int = 0xF4CCD4
-    error: int = 0xF484F4
-    warning: int = 0xF4ACAC
+    normal: int = 0x2B2D31
+    error: int = 0xFC6464
+    warning: int = 0xFCAC1C
+    blue: int = 0x748CDC
+    approve: int = 0xA4EC7C

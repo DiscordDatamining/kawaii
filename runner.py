@@ -1,5 +1,5 @@
 import os
-from modules.kawaii import Kawaii
+from modules.kawaii import Margiela
 from workers.client import Authorization
 
 os.environ.update(
@@ -12,7 +12,7 @@ os.environ.update(
         "JISHAKU_SHELL_NO_DM_TRACEBACK": "True",
     }
 )
-Client = Kawaii()
+Client = Margiela()
 
 if __name__:
     Client.run(
