@@ -157,13 +157,11 @@ class Margiela(Bot):
             page.add_button(
                 "prev",
                 emoji=Emoji.left,
-                label="Previous",
                 style=discord.ButtonStyle.blurple,
             )
             page.add_button(
                 "next",
                 emoji=Emoji.right,
-                label="Next",
                 style=discord.ButtonStyle.blurple,
             )
             page.add_button(
