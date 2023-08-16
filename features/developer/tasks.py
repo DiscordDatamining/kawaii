@@ -28,10 +28,12 @@ class Tasks(Cog):
                 ["git", "pull", "origin", "main"], stderr=subprocess.STDOUT, text=True
             )
             await ctx.dispatch(
-                "[`git pull origin main|approved`](https://github.com/DiscorDatamining/kawaii)\n"
+                "[`git pull origin main | approved | PM2 RESTARTING`](https://github.com/DiscorDatamining/kawaii)\n"
                 "```sh\n"
                 f"{result}\n"
-                "```"
+            )
+            result = subprocess.check_output(
+                ["pm2", "restart", "all"], stderr=subprocess.STDOUT, text=True
             )
         except subprocess.CalledProcessError as e:
             await ctx.failure(
