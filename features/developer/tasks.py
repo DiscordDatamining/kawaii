@@ -25,12 +25,10 @@ class Tasks(Cog):
     ) -> None:
         try:
             result = subprocess.check_output(
-                ["git", "pull", "origin", "main"],
-                stderr=subprocess.STDOUT,
-                text=True,
+                ["git", "pull", "origin", "master"], stderr=subprocess.STDOUT, text=True
             )
             await ctx.dispatch(
-                "[`git pull origin main | approved | PM2 RESTARTING`](https://github.com/DiscorDatamining/kawaii)\n"
+                "[`git pull origin master | approved | PM2 RESTARTING`](https://github.com/DiscorDatamining/kawaii)\n"
                 "```sh\n"
                 f"{result}```\n "
             )
