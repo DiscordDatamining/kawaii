@@ -109,7 +109,7 @@ class Kawaii(Bot):
                     color=Color.normal,
                 )
             )
-        
+
         async def failure(
             self: "Kawaii.context", message: str, error_code: str = None
         ) -> None:
@@ -123,12 +123,7 @@ class Kawaii(Bot):
                 self.callbacks = True
             await self.send(
                 embed=Embed(
-                    description=(
-                        f"{f'{Emoji.bunny} Oh no! ive ran into a [`{error_code}`](https://http.cat/{error_code}) :c' 
-                        if error_code else f'{Emoji.bunny}, {message} :c'
-                        }"
-                    ),
-                    color=Color.error
+                    description=(f"{Emoji.bunny}, {message} :c"),
+                    color=Color.error,
                 )
             )
-            
