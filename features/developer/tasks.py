@@ -1,4 +1,4 @@
-import os
+import subprocess
 from discord import Embed
 from discord.ext.commands import (
     Cog,
@@ -23,13 +23,20 @@ class Tasks(Cog):
         self: "Tasks",
         ctx: Context,
     ) -> None:
-        terminal = os.system("git pull origin main")
-        await ctx.dispatch(
-            "[`git pull origin main|approved`](https://github.com/DiscorDatamining/kawaii)\n"
-            "```sh\n"
-            f"{terminal}\n"
-            "```"
-        )
+        try:
+            result = subprocess.check_output(
+                ["git", "pull", "origin", "main"], stderr=subprocess.STDOUT, text=True
+            )
+            await ctx.dispatch(
+                "[`git pull origin main|approved`](https://github.com/DiscorDatamining/kawaii)\n"
+                "```sh\n"
+                f"{result}\n"
+                "```"
+            )
+        except subprocess.CalledProcessError as e:
+            await ctx.failure(
+                f"[`Failed to pull branch`](https://github.com/DiscorDatamining/kawaii)\n{e}"
+            )
 
 
 async def setup(bot):
