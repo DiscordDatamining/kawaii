@@ -123,7 +123,7 @@ class Margiela(Bot):
             )
 
         async def failure(
-            self: "Margiela.context", message: str = None, error_code: str = None
+            self: "Margiela.context", message: str = None, error_code: int = None
         ) -> None:
             if not error_code:
                 self.callbacks = False
