@@ -12,5 +12,5 @@ class AutoWorker(Cog):
         self.bot, self.client, self.worker = bot
 
 
-async def setup(bot):
+async def setup(bot: Margiela) -> None:
     await bot.add_cog(AutoWorker(bot))
