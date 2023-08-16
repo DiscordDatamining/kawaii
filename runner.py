@@ -13,6 +13,7 @@ os.environ.update(
     }
 )
 Client = Kawaii()
+
 if __name__:
     Client.run(
         token=Authorization.token,
