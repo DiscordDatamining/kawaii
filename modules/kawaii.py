@@ -150,7 +150,7 @@ class Kawaii(Bot):
             )
             page.add_button(
                 "delete",
-                emoji=Emoji.delete,
+                emoji=Emoji.cancel,
                 label="Delete",
                 style=discord.ButtonStyle.danger,
             )
