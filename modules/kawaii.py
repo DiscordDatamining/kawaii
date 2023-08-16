@@ -122,7 +122,7 @@ class Kawaii(Bot):
             elif error_code:
                 return await self.send(
                 embed=Embed(
-                    description=f"{Emoji.bunny} {self.author.mention}, An [`{error_code}`](https://http.cat/{error_code}) error occured :c",
+                    description=f"{Emoji.bunny} {self.author.mention}, An **[`{error_code}`](https://http.cat/{error_code})** error occured :c",
                     color=Color.warning,
                 )
             )
