@@ -132,13 +132,13 @@ class Kawaii(Bot):
             page = pg(self.bot, embeds, ctx, invoker=ctx.author.id)
             page.add_button(
                 "prev",
-                emoji=Emoji.bow,
+                emoji=Emoji.left,
                 label="Back",
                 style=discord.ButtonStyle.blurple,
             )
             page.add_button(
                 "next",
-                emoji=Emoji.bunny,
+                emoji=Emoji.right,
                 label="Next",
                 style=discord.ButtonStyle.blurple,
             )
@@ -146,7 +146,7 @@ class Kawaii(Bot):
                 "goto",
                 emoji=Emoji.goto2,
                 label="Jump",
-                style=discord.ButtonStyle.grey,
+                style=discord.ButtonStyle.gray,
             )
             page.add_button(
                 "delete",
