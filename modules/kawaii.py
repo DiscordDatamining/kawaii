@@ -113,7 +113,7 @@ class Kawaii(Bot):
         async def failure(
             self: "Kawaii.context", message: str, error_code: str = None
         ) -> None:
-            if not error_code or message:
+            if not error_code:
                 self.callbacks = False
                 return
             else:
