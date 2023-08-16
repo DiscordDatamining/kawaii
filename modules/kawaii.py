@@ -140,7 +140,7 @@ class Kawaii(Bot):
         async def fetch(
             self: "Kawaii.context", ctx: Context, query: str, *args, **kwargs
         ) -> None:
-            fetched = await self.db.fetch(query)
+            fetched = await Kawaii.db.fetch(query)
             await self.paginate(ctx, embeds=[f"```bf\nfetched```"])
 
 
