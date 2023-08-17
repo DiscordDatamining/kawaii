@@ -12,7 +12,7 @@ from workers.client import Emoji, Color
 
 class AutoWorker(Cog):
     def __init__(self: "AutoWorker", bot: Margiela, *args, **kwargs) -> None:
-        self.bot, self.worker = bot
+        self.bot = bot
 
     class ButtonWorker:
 
