@@ -14,6 +14,19 @@ class AutoWorker(Cog):
     def __init__(self: "AutoWorker", bot: Margiela, *args, **kwargs) -> None:
         self.bot = bot
 
+    @command(name="instagram", usage="(Username)", aliases=["ig"])
+    async def instagram(self: "AutoWorker", ctx: Context, user: str = None):
+        if not user:
+            return await ctx.failure(
+                "Slow down buddy... you cant run this without a user!"
+            )
+        data = self.bot.session.get(
+            self=AutoWorker,
+            url="https://dev.lains.life/instagram/profile",
+            params={"username": user},
+        )
+        return data
+
     @group(
         name="autopfp",
         usage="(Channel) <Category> # Automatic Custom Setup",
@@ -103,7 +116,7 @@ class AutoWorker(Cog):
                     view=None,
                 )
 
-        edgy.callback = edgycallback(
+        edgy.callback = AutoWorker.edgycallback(
             interaction=discord.Interaction,
         )
         view = discord.ui.View()
