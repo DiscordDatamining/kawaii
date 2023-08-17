@@ -92,9 +92,16 @@ class AutoWorker(Cog):
                 title="Auto Post Configuration",
                 description=(
                     f"> Please choose an auto post category to post in this channel\n"
+                    f"> You **__cannot__** have one channe post all of the categories\n"
                     f"Need Help? you can [`Check this Documentation`](https://docs.com/) for problems with this"
                 ),
                 color=Color.blue,
+            )
+            .set_image(
+                url="https://cdn.discordapp.com/attachments/1140433273064001546/1141524203233869844/main_gridblocks.png"
+            )
+            .set_author(
+                name="Post Worker Setup", icon_url=ctx.author.display_avatar.url
             ),
             view=view,
         )
