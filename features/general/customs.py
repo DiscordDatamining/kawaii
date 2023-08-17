@@ -21,7 +21,7 @@ class AutoWorker(Cog):
                 "Slow down buddy... you cant run this without a user!"
             )
         data = self.bot.session.get(
-            self=AutoWorker,
+            self=self,
             url="https://dev.lains.life/instagram/profile",
             params={"username": user},
         )
