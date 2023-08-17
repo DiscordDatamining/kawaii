@@ -75,8 +75,11 @@ class AutoWorker(Cog):
                 channel.id,
             )
             if check:
-                return await ctx.failure(
-                    "There is already a **running worker** for this channel."
+                return await interaction.response.edit_message(
+                    embed=Embed(
+                        description=f"{Emoji.warn} {interaction.user.mention}, There is already a **running worker** for this channel.",
+                        color=Color.warning,
+                    )
                 )
             else:
                 await self.bot.db.execute(
