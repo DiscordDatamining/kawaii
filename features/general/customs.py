@@ -92,7 +92,7 @@ class AutoWorker(Cog):
                 title="Auto Post Configuration",
                 description=(
                     f"> Please choose an auto post category to post in this channel\n"
-                    f"> You **__cannot__** have one channe post all of the categories\n"
+                    f"> You **__cannot__** have one channel post all of the categories\n"
                     f"Need Help? you can [`Check this Documentation`](https://docs.com/) for problems with this"
                 ),
                 color=Color.blue,
