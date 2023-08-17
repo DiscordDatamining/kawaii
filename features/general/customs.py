@@ -91,12 +91,12 @@ class AutoWorker(Cog):
                 await interaction.response.edit_message(
                     embed=Embed(
                         description=(
-                            f"Created a new **Post Task** for {channel.mention}.\n"
-                            f"> Margiela will now post **Edgy** pfps for now on.\n"
-                            f"> This will now scrape new pfps posted on these platforms:\n"
-                            f"[`pintrest.com`](https://pintrest.com)"
-                            f"[`weheart.it`](https://weheart.it)"
-                            f"[`discord.gg/pfps`](https://discord.gg/pfps)"
+                            f"> Created a new **Post Task** for {channel.mention}.\n"
+                            f"Margiela will now post **Edgy** pfps for now on.\n"
+                            f"This will now scrape new pfps posted on these platforms:\n"
+                            f"[`pintrest.com`](https://pintrest.com)\n"
+                            f"[`weheart.it`](https://weheart.it)\n"
+                            f"[`discord.gg/pfps`](https://discord.gg/pfps)\n"
                         ),
                         color=Color.blue,
                     ),
