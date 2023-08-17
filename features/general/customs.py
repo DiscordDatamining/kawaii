@@ -12,7 +12,7 @@ from workers.client import Emoji, Color
 
 class AutoWorker(Cog):
     def __init__(self: "AutoWorker", bot: Margiela, *args, **kwargs) -> None:
-        self.bot, self.client, self.worker = bot
+        self.bot, self.worker = bot
 
     class ButtonWorker:
 
@@ -26,6 +26,7 @@ class AutoWorker(Cog):
     @group(
         name="autopfp",
         usage="(Channel) <Category> # Automatic Custom Setup",
+        invoke_without_command=True,
         aliases=[
             "pfp",
             "post",
