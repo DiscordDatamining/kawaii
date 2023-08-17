@@ -314,7 +314,7 @@ class Paginator(discord.ui.View):
                 return await interaction.response.send_message(
                     ephemeral=True,
                     embed=discord.Embed(
-                        description=f"{Emoji.bunny} {interaction.user.mention}, Sorry :c You cannot operate on this embed!",
+                        description=f"{Emoji.warn} {interaction.user.mention}, Sorry :c You cannot operate on this embed!",
                         color=Color.error,
                     ),
                 )
