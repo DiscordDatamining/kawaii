@@ -20,6 +20,9 @@ class Emoji:
     bow: str = "<a:kawaiiBowPink:1141247541330063421>"
     ribbon: str = "<a:kawaiiPinkRibbon:1141247576390242375>"
     bunny: str = "<a:BunnyCarrots:1141247581465354272>"
+    chika: str = "<:ChikaWoah:1141247624280805417>"
+    love: str = "<a:KittyLove:1141247708498247690"
+    melody: str = "<:MelodySmile:1141247717704736909>"
 
     """
     Important Buttons
