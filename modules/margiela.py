@@ -69,7 +69,6 @@ class Margiela(Bot):
         pass
 
     async def on_ready(self: "Margiela") -> None:
-        self.session = ClientSession
         await self.load_extension("jishaku")
         for root, dirs, files in os.walk("features"):
             for filename in files:
