@@ -103,9 +103,7 @@ class AutoWorker(Cog):
                     view=None,
                 )
 
-        edgy.callback = edgycallback(
-            interaction=discord.Interaction,
-        )
+        edgy.callback = edgycallback
         view = discord.ui.View()
         view.add_item(edgy)
         view.add_item(females)
