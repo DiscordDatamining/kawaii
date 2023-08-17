@@ -104,9 +104,6 @@ class AutoWorker(Cog):
                 )
 
         edgy.callback = edgycallback
-        females.callback = AutoWorker.ButtonWorker.edgy
-        soft.callback = AutoWorker.ButtonWorker.edgy
-        world.callback = AutoWorker.ButtonWorker.edgy
         view = discord.ui.View()
         view.add_item(edgy)
         view.add_item(females)
