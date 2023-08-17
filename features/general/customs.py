@@ -14,15 +14,6 @@ class AutoWorker(Cog):
     def __init__(self: "AutoWorker", bot: Margiela, *args, **kwargs) -> None:
         self.bot = bot
 
-    class ButtonWorker:
-
-        """
-        This is a custom class for my buttons for the auto pfp
-        """
-
-        async def edgy(interaction: discord.Interaction) -> discord.Interaction:
-            return interaction.response.edit_message("L", view=None)
-
     @group(
         name="autopfp",
         usage="(Channel) <Category> # Automatic Custom Setup",
@@ -74,7 +65,45 @@ class AutoWorker(Cog):
             style=discord.ButtonStyle.blurple,
             emoji=Emoji.melody,
         )
-        edgy.callback = AutoWorker.ButtonWorker.edgy
+
+        async def edgycallback(interaction: discord.Interaction) -> None:
+            check = await self.bot.db.fetch(
+                """
+                SELECT * FROM AutoWorker
+                WHERE Channel = $1
+                """,
+                channel.id,
+            )
+            if check:
+                return await ctx.failure(
+                    "There is already a **running worker** for this channel."
+                )
+            else:
+                await self.bot.db.execute(
+                    """
+                    INSERT INTO AutoWorker (Guild, Channel, Category)
+                    VALUES ($1, $2, $3)
+                    """,
+                    ctx.guild.id,
+                    channel.id,
+                    "Edgy",
+                )
+                return await interaction.response.edit_message(
+                    embed=Embed(
+                        description=(
+                            f"Created a new **Post Task** for {channel.mention}.\n"
+                            f"> Margiela will now post **Edgy** pfps for now on.\n"
+                            f"> This will now scrape new pfps posted on these platforms:\n"
+                            f"[`pintrest.com`](https://pintrest.com)"
+                            f"[`weheart.it`](https://weheart.it)"
+                            f"[`discord.gg/pfps`](https://discord.gg/pfps)"
+                        ),
+                        color=Color.blue,
+                    ),
+                    view=None,
+                )
+
+        edgy.callback = edgycallback
         females.callback = AutoWorker.ButtonWorker.edgy
         soft.callback = AutoWorker.ButtonWorker.edgy
         world.callback = AutoWorker.ButtonWorker.edgy
