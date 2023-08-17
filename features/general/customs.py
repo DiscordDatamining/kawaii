@@ -88,7 +88,7 @@ class AutoWorker(Cog):
                     channel.id,
                     "Edgy",
                 )
-                return await interaction.response.edit_message(
+                await interaction.response.edit_message(
                     embed=Embed(
                         description=(
                             f"Created a new **Post Task** for {channel.mention}.\n"
