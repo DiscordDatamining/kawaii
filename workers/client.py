@@ -2,7 +2,7 @@ class Authorization:
     token: str = (
         "ODU5NTY5OTkwMDQxNDY4OTI4.GiEr5B.iRqdbIPG8YfJ3JW42q5k9AtFqwBTaWJUXoAxI4"
     )
-    prefix: str = ";"
+    prefix: str = ","
     owner_ids: list = [
         384076851494125569,
     ]
@@ -44,7 +44,8 @@ class Emoji:
 
 
 class Color:
-    normal: int = 0x2B2D31
+    # normal: int = 0x2B2D31
+    normal: int = 0x748CDC
     error: int = 0xFC6464
     warning: int = 0xFCAC1C
     blue: int = 0x748CDC

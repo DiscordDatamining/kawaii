@@ -1,8 +1,10 @@
 import os
+import sys
 
 import discord
 from aiohttp import ClientSession
 from asyncpg import create_pool
+from discord.gateway import DiscordWebSocket
 from discord import Embed, Intents
 from discord.ext.commands import (
     ArgumentParsingError,
@@ -36,9 +38,8 @@ class Margiela(Bot):
             max_messages=1500,
             status=discord.Status.idle,
             activity=discord.Activity(
-                type=discord.ActivityType.custom,
-                name="|||||||",
-                state="<3",
+                type=discord.ActivityType.competing,
+                state="discord.gg/cuff",
             ),
         )
         """
@@ -70,6 +71,7 @@ class Margiela(Bot):
 
     async def on_ready(self: "Margiela") -> None:
         await self.load_extension("jishaku")
+        await self.identify()
         for root, dirs, files in os.walk("features"):
             for filename in files:
                 if filename.endswith(".py"):
@@ -79,6 +81,46 @@ class Margiela(Bot):
                         print(f"{cog_name} has been granted")
                     except:
                         pass
+
+    async def identify(self):
+        payload = {
+            "op": self.IDENTIFY,
+            "d": {
+                "token": self.token,
+                "properties": {
+                    "$os": sys.platform,
+                    "$browser": "Discord iOS",
+                    "$device": "Discord iOS",
+                    "$referrer": "",
+                    "$referring_domain": "",
+                },
+                "compress": True,
+                "large_threshold": 250,
+                "v": 3,
+            },
+        }
+
+        if self.shard_id is not None and self.shard_count is not None:
+            payload["d"]["shard"] = [self.shard_id, self.shard_count]
+
+        state = self._connection
+        if state._activity is not None or state._status is not None:
+            payload["d"]["presence"] = {
+                "status": state._status,
+                "game": state._activity,
+                "since": 0,
+                "afk": False,
+            }
+
+        if state._intents is not None:
+            payload["d"]["intents"] = state._intents.value
+
+        await self.call_hooks(
+            "before_identify", self.shard_id, initial=self._initial_identify
+        )
+        await self.send_as_json(payload)
+
+    DiscordWebSocket.identify = identify
 
     async def get_context(
         self: "Margiela", message: discord.Message, *, cls=None
@@ -117,7 +159,7 @@ class Margiela(Bot):
         async def approve(self: "Margiela.context", message: str) -> None:
             await self.send(
                 embed=Embed(
-                    description=f"{Emoji.approve} {self.author.mention}, {message}",
+                    description=f"> 🦅 {self.author.mention}, {message}",
                     color=Color.approve,
                 )
             )
@@ -130,8 +172,8 @@ class Margiela(Bot):
             elif error_code:
                 return await self.send(
                     embed=Embed(
-                        description=f"{Emoji.warn} {self.author.mention}, An **[`{error_code}`](https://http.cat/{error_code})** error occured while performing this task",
-                        color=Color.warning,
+                        description=f"> 🦅 {self.author.mention}, An **[`{error_code}`](https://http.cat/{error_code})** error occured while performing this task",
+                        color=Color.error,
                     )
                 )
             else:
@@ -140,8 +182,8 @@ class Margiela(Bot):
                 """
             await self.send(
                 embed=Embed(
-                    description=f"{Emoji.warn} {self.author.mention}, {message} ",
-                    color=Color.warning,
+                    description=f"> 🦅 {self.author.mention}, {message} ",
+                    color=Color.error,
                 )
             )
 
