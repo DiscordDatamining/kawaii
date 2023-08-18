@@ -198,21 +198,19 @@ class Margiela(Bot):
             page.add_button(
                 "prev",
                 emoji=Emoji.left,
+                label="Previous Page",
                 style=discord.ButtonStyle.blurple,
             )
             page.add_button(
                 "next",
                 emoji=Emoji.right,
+                label="Next Page",
                 style=discord.ButtonStyle.blurple,
-            )
-            page.add_button(
-                "goto",
-                emoji=Emoji.goto2,
-                style=discord.ButtonStyle.gray,
             )
             page.add_button(
                 "delete",
                 emoji=Emoji.cancel,
+                label="Delete",
                 style=discord.ButtonStyle.danger,
             )
             return await page.start()
