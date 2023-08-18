@@ -36,10 +36,9 @@ class Margiela(Bot):
             case_insensitive=True,
             strip_after_prefix=True,
             max_messages=1500,
-            status=discord.Status.idle,
             activity=discord.Activity(
                 type=discord.ActivityType.competing,
-                state="discord.gg/cuff",
+                name="discord.gg/cuff",
             ),
         )
         """
