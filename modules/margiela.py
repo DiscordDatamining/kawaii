@@ -150,7 +150,7 @@ class Margiela(Bot):
                 """
             await self.send(
                 embed=Embed(
-                    description=f"{message}",
+                    description=f"🦅 {self.author.mention}, {message}",
                     color=Color.normal,
                 )
             )
@@ -158,7 +158,7 @@ class Margiela(Bot):
         async def approve(self: "Margiela.context", message: str) -> None:
             await self.send(
                 embed=Embed(
-                    description=f"> 🦅 {self.author.mention}, {message}",
+                    description=f"🦅 {self.author.mention}, {message}",
                     color=Color.approve,
                 )
             )
@@ -171,7 +171,7 @@ class Margiela(Bot):
             elif error_code:
                 return await self.send(
                     embed=Embed(
-                        description=f"> 🦅 {self.author.mention}, An **[`{error_code}`](https://http.cat/{error_code})** error occured while performing this task",
+                        description=f"🦅 {self.author.mention}, An **[`{error_code}`](https://http.cat/{error_code})** error occured while performing this task",
                         color=Color.error,
                     )
                 )
@@ -181,7 +181,7 @@ class Margiela(Bot):
                 """
             await self.send(
                 embed=Embed(
-                    description=f"> 🦅 {self.author.mention}, {message} ",
+                    description=f"🦅 {self.author.mention}, {message} ",
                     color=Color.error,
                 )
             )
