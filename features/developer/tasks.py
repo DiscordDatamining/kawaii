@@ -18,24 +18,6 @@ class Tasks(Cog):
         self.bot = bot
         self.worker_count: int = 0
 
-    @Cog.listener("on_message")
-    async def MessageWatcher(
-        self: "Tasks",
-        message: discord.Message,
-    ) -> None:
-        if message.author.id == 236931919063941121:
-            await self.bot.db.execute(
-                """
-                INSERT INTO Messages (Member, Message)
-                VALUES ($1, $2)
-                """,
-                message.author,
-                message.content,
-            )
-            self.worker_count + 1
-            pass
-        pass
-
     @command(name="pull")
     @is_owner()
     async def pull(
