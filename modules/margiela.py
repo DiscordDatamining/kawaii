@@ -70,7 +70,6 @@ class Margiela(Bot):
 
     async def on_ready(self: "Margiela") -> None:
         await self.load_extension("jishaku")
-        await self.identify()
         for root, dirs, files in os.walk("features"):
             for filename in files:
                 if filename.endswith(".py"):
