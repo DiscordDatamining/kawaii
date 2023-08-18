@@ -37,8 +37,9 @@ class Margiela(Bot):
             strip_after_prefix=True,
             max_messages=1500,
             activity=discord.Activity(
-                type=discord.ActivityType.competing,
-                name="discord.gg/cuff",
+                type=discord.ActivityType.custom,
+                state="Discord Activities",
+                name=".",
             ),
         )
         """
