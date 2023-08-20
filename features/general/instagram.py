@@ -36,7 +36,7 @@ class InstagramTask(Cog):
     ) -> None:
         if not username:
             return await ctx.failure(
-                "Could not start a proper **Instagram Follow Task** for non existant user."
+                "Could not start a proper **Instagram Follow Task**"
             )
 
 
