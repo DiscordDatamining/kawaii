@@ -9,7 +9,10 @@ class Authorization:
 
 
 class Task:
-    ...
+    class lain:
+        APIKEY: str = (
+            "sipher_Qx4IOl2pu1HKzFqUQzvk2mKCClc44aP6T2vrg066oZ48JnJkUjmWqDM6znP4vyyK"
+        )
 
 
 class Emoji:
