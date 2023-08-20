@@ -16,7 +16,7 @@ class AutoWorker(Cog):
 
     @group(
         name="autopfp",
-        usage="(Channel) <Category> # Automatic Custom Setup",
+        usage="(Channel) <Category> # Automatic Custom Setup ",
         invoke_without_command=True,
         aliases=[
             "pfp",

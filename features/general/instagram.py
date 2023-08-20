@@ -17,7 +17,7 @@ class InstagramTask(Cog):
         name="instagram",
         usage="(Command) <...>",
         invoke_without_command=True,
-        aliases=["ig"],
+        aliases=["ig "],
     )
     async def instagram(
         self: "InstagramTask",
@@ -29,7 +29,7 @@ class InstagramTask(Cog):
 
     @instagram.command(
         name="follow",
-        aliases=["bot"],
+        aliases=["bot "],
     )
     async def followbot(
         self: "InstagramTask", ctx: Context, username: str = None

@@ -14,14 +14,14 @@ class Welcome(Cog):
 
     @group(
         name="welcome",
-        usage="(Channel) (Message) <Flags>",
+        usage="(Channel) (Message) <Flags> ",
         aliases={
             "welc",
             "wlc",
         },
     )
     async def welcome(
-        self: "Welcome",
+        self: "Welcome ",
         ctx: Context,
     ) -> None:
         pass

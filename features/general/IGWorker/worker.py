@@ -13,7 +13,7 @@ class Worker:
     def __init__(self: "Worker", *args, **kwargs) -> None:
         self.config = json.load(
             open(
-                file="api.json",
+                file="api.json ",
                 encoding="UTF-8",
             )
         )
