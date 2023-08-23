@@ -49,18 +49,21 @@ class AutoWorker(Cog):
                 return
             note = "heheheheheheh"
             return await interaction.response.send_message(
-                content=(
-                    f"Please send ${amount} to [`@forbiddenwillows`](https://paypal.me/forbiddenwillows) on PayPal.\n"
-                    f"Use the note `{note}` in the PayPal transaction for it to be verified.\n"
-                    f"This transaction will take up to **160** Seconds to identify.\n"
-                    f"Contact a Staff member if this transaction fails."
-                ),
                 embeds=[
+                    discord.Embed(
+                        description=(
+                            f"> Please send ${amount} to [`@forbiddenwillows`](https://paypal.me/forbiddenwillows) on PayPal.\n"
+                            f"> Use the note `{note}` in the PayPal transaction for it to be verified.\n"
+                            f"This transaction will take up to **160** Seconds to identify.\n"
+                            f"Contact a Staff member if this transaction fails."
+                        ),
+                        color=0x080808,
+                    ),
                     discord.Embed(
                         title="PayPal QR Code",
                         description="> Scan the QR Code below to pay!",
                         color=0x00ABC9,
-                    )
+                    ),
                 ],
                 ephemeral=True,
             )
