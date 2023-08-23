@@ -54,6 +54,8 @@ class AutoWorker(Cog):
                 label="I have sent the money!",
                 style=discord.ButtonStyle.green,
             )
+            Confirm.callback = Confirm_callback
+            newview.add_item(Confirm)
 
             async def Confirm_callback(interaction: discord.Interaction) -> None:
                 return await interaction.response.edit_message(
