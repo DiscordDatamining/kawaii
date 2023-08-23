@@ -6,6 +6,8 @@ from discord.ext.commands import (
     command,
     Context,
 )
+import random
+import string
 from modules.margiela import Margiela
 from workers.client import Emoji, Color
 
@@ -13,6 +15,65 @@ from workers.client import Emoji, Color
 class AutoWorker(Cog):
     def __init__(self: "AutoWorker", bot: Margiela, *args, **kwargs) -> None:
         self.bot = bot
+
+    @command(
+        name="exchange",
+        aliases=["start"],
+    )
+    async def exchange(
+        self: "AutoWorker",
+        ctx: Context,
+        amount: int,
+    ) -> None:
+        """
+        Sets up purchases for PayPal to Cash App Exchanges
+        """
+        PayPal = discord.ui.Button(
+            label="PayPal to Cashapp",
+            style=discord.ButtonStyle.blurple,
+        )
+        Cashapp = discord.ui.Button(
+            label="Cash App to PayPal",
+            style=discord.ButtonStyle.green,
+        )
+        Support = discord.ui.Button(
+            label="Create a Support Thread",
+            style=discord.ButtonStyle.gray,
+        )
+
+        async def PayPal_callback(interaction: discord.Interaction) -> None:
+            """
+            PayPal Callback
+            """
+            if interaction.user != interaction.user:
+                return
+            note = "heheheheheheh"
+            return await interaction.response.send_message(
+                content=(
+                    f"Please send ${amount:,} to [`@forbiddenwillows`](https://paypal.me/forbiddenwillows) on PayPal.\n"
+                    f"Use the note `{note}` in the PayPal transaction for it to be verified.\n"
+                    f"This transaction will take up to **160** Seconds to identify.\n"
+                    f"If this transaction isnt identified, PM a Moderator and open a case with your note ID."
+                ),
+                embeds=[
+                    discord.Embed(
+                        title="PayPal QR Code",
+                        description="> Scan the QR Code below to pay!",
+                        color=0x00ABC9,
+                    )
+                ],
+            )
+
+        PayPal.callback = PayPal_callback
+        view = discord.ui.View()
+        view.add_item(PayPal)
+        await ctx.send(
+            content=(
+                f"Please select a method you would like to exchange.\n"
+                f"This message will Self-destruct in **[`Less than a minute`](https://discord.com/tos)**"
+            ),
+            view=view,
+        )
 
     @group(
         name="autopfp",
