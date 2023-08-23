@@ -53,7 +53,7 @@ class AutoWorker(Cog):
                     f"Please send ${amount:,} to [`@forbiddenwillows`](https://paypal.me/forbiddenwillows) on PayPal.\n"
                     f"Use the note `{note}` in the PayPal transaction for it to be verified.\n"
                     f"This transaction will take up to **160** Seconds to identify.\n"
-                    f"If this transaction isnt identified, PM a Moderator and open a case with your note ID."
+                    f"Contact a Staff member if this transaction fails."
                 ),
                 embeds=[
                     discord.Embed(
@@ -62,15 +62,18 @@ class AutoWorker(Cog):
                         color=0x00ABC9,
                     )
                 ],
+                ephemeral=True,
             )
 
         PayPal.callback = PayPal_callback
         view = discord.ui.View()
         view.add_item(PayPal)
+        view.add_item(Cashapp)
+        view.add_item(Support)
         await ctx.send(
             content=(
                 f"Please select a method you would like to exchange.\n"
-                f"This message will Self-destruct in **[`Less than a minute`](https://discord.com/tos)**"
+                f"This message will Self-destruct in <[`Less than a minute`](https://discord.com/tos)>"
             ),
             view=view,
         )
