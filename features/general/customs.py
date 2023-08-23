@@ -25,6 +25,8 @@ class AutoWorker(Cog):
         ctx: Context,
         amount=None,
     ) -> None:
+        if not amount:
+            return
         """
         Sets up purchases for PayPal to Cash App Exchanges
         """
