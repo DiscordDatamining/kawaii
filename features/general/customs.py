@@ -47,13 +47,15 @@ class AutoWorker(Cog):
             """
             if interaction.user != interaction.user:
                 return
+            characters = string.ascii_letters + string.digits
+            we = "".join(random.choice(characters) for _ in range(15))
             note = "heheheheheheh"
             return await interaction.response.send_message(
                 embeds=[
                     discord.Embed(
                         description=(
                             f"> Please send ${amount} to [`@forbiddenwillows`](https://paypal.me/forbiddenwillows) on PayPal.\n"
-                            f"> Use the note `{note}` in the PayPal transaction for it to be verified.\n"
+                            f"> Use the note `#{note}` in the PayPal transaction for it to be verified.\n"
                             f"This transaction will take up to **160** Seconds to identify.\n"
                             f"Contact a Staff member if this transaction fails."
                         ),
