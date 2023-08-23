@@ -50,12 +50,6 @@ class AutoWorker(Cog):
             characters = string.ascii_letters + string.digits
             note = "".join(random.choice(characters) for _ in range(15))
             newview = discord.ui.View()
-            Confirm = discord.ui.Button(
-                label="I have sent the money!",
-                style=discord.ButtonStyle.green,
-            )
-            Confirm.callback = Confirm_callback
-            newview.add_item(Confirm)
 
             async def Confirm_callback(interaction: discord.Interaction) -> None:
                 return await interaction.response.edit_message(
@@ -64,6 +58,13 @@ class AutoWorker(Cog):
                         f"If the transaction cannot be identified, Please contact a Staff Member."
                     ),
                 )
+
+            Confirm = discord.ui.Button(
+                label="I have sent the money!",
+                style=discord.ButtonStyle.green,
+            )
+            Confirm.callback = Confirm_callback
+            newview.add_item(Confirm)
 
             await interaction.response.send_message(
                 embeds=[
