@@ -23,7 +23,7 @@ class AutoWorker(Cog):
     async def exchange(
         self: "AutoWorker",
         ctx: Context,
-        amount=None,
+        amount: int = None,
     ) -> None:
         if not amount:
             return
