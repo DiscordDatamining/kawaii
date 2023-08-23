@@ -49,7 +49,21 @@ class AutoWorker(Cog):
                 return
             characters = string.ascii_letters + string.digits
             note = "".join(random.choice(characters) for _ in range(15))
-            return await interaction.response.send_message(
+            newview = discord.ui.View()
+            Confirm = discord.ui.Button(
+                label="I have sent the money!",
+                style=discord.ButtonStyle.green,
+            )
+
+            async def Confirm_callback(interaction: discord.Interaction) -> None:
+                return await interaction.response.edit_message(
+                    content=(
+                        f"Please wait while we indentify your transaction.\n"
+                        f"If the transaction cannot be identified, Please contact a Staff Member."
+                    ),
+                )
+
+            await interaction.response.send_message(
                 embeds=[
                     discord.Embed(
                         description=(
@@ -67,6 +81,7 @@ class AutoWorker(Cog):
                     ),
                 ],
                 ephemeral=True,
+                view=newview,
             )
 
         PayPal.callback = PayPal_callback
