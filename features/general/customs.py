@@ -48,8 +48,7 @@ class AutoWorker(Cog):
             if interaction.user != interaction.user:
                 return
             characters = string.ascii_letters + string.digits
-            we = "".join(random.choice(characters) for _ in range(15))
-            note = "heheheheheheh"
+            note = "".join(random.choice(characters) for _ in range(15))
             return await interaction.response.send_message(
                 embeds=[
                     discord.Embed(
