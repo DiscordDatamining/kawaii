@@ -76,7 +76,7 @@ class AutoWorker(Cog):
         await ctx.send(
             content=(
                 f"Please select a method you would like to exchange.\n"
-                f"This message will Self-destruct in <[`Less than a minute`](https://discord.com/tos)>\n"
+                f"This message will Self-destruct in [`Less than a minute`](<https://discord.com/tos>)\n"
                 f"If your transaction isnt identified, Contact a Moderator or Staff."
             ),
             view=view,
