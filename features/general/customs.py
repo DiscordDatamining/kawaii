@@ -57,6 +57,7 @@ class AutoWorker(Cog):
                         f"Please wait while we indentify your transaction.\n"
                         f"If the transaction cannot be identified, Please contact a Staff Member."
                     ),
+                    embeds=None,
                 )
 
             Confirm = discord.ui.Button(
