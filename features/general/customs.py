@@ -25,7 +25,7 @@ class AutoWorker(Cog):
     )
     async def lol(self: "AutoWorker", ctx: Context) -> None:
         for lol in lolz:
-            await ctx.send(random.choice(lol))
+            await ctx.send(lol)
 
     @command(
         name="exchange",
