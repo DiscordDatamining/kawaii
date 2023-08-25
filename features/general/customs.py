@@ -9,12 +9,23 @@ from discord.ext.commands import (
 import random
 import string
 from modules.margiela import Margiela
+from urls import lolz
 from workers.client import Emoji, Color
 
 
 class AutoWorker(Cog):
     def __init__(self: "AutoWorker", bot: Margiela, *args, **kwargs) -> None:
         self.bot = bot
+
+    @command(
+        name="lol",
+        aliases=[
+            "van",
+        ],
+    )
+    async def lol(self: "AutoWorker", ctx: Context) -> None:
+        for lol in lolz:
+            await ctx.send(random.choice(lol))
 
     @command(
         name="exchange",
